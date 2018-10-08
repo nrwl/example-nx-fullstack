@@ -1,0 +1,33 @@
+{
+  "npmScope": "myorg",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "tuskdesk": {
+      "tags": []
+    },
+    "tuskdesk-e2e": {
+      "tags": []
+    },
+    "tuskdesk-admin": {
+      "tags": []
+    },
+    "tuskdesk-admin-e2e": {
+      "tags": []
+    },
+    "ui-shell": {
+      "tags": []
+    },
+    "api": {
+      "tags": []
+    },
+    "data": {
+      "tags": []
+    }
+  }
+}

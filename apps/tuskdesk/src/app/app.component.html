@@ -1,0 +1,7 @@
+<myorg-shell title="Tuskdesk app"></myorg-shell>
+
+<ul>
+  <li *ngFor="let ticket of tickets|async">
+    {{ ticket.title }}
+  </li>
+</ul>

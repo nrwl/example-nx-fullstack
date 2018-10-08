@@ -1,0 +1,364 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "tuskdesk": {
+      "root": "apps/tuskdesk/",
+      "sourceRoot": "apps/tuskdesk/src",
+      "projectType": "application",
+      "prefix": "myorg",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/tuskdesk",
+            "index": "apps/tuskdesk/src/index.html",
+            "main": "apps/tuskdesk/src/main.ts",
+            "polyfills": "apps/tuskdesk/src/polyfills.ts",
+            "tsConfig": "apps/tuskdesk/tsconfig.app.json",
+            "assets": [
+              "apps/tuskdesk/src/favicon.ico",
+              "apps/tuskdesk/src/assets"
+            ],
+            "styles": [
+              "apps/tuskdesk/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/tuskdesk/src/environments/environment.ts",
+                  "with": "apps/tuskdesk/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "tuskdesk:build",
+            "proxyConfig": "proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "tuskdesk:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "tuskdesk:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/tuskdesk/src/test.ts",
+            "polyfills": "apps/tuskdesk/src/polyfills.ts",
+            "tsConfig": "apps/tuskdesk/tsconfig.spec.json",
+            "karmaConfig": "apps/tuskdesk/karma.conf.js",
+            "styles": [
+              "apps/tuskdesk/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "apps/tuskdesk/src/favicon.ico",
+              "apps/tuskdesk/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/tuskdesk/tsconfig.app.json",
+              "apps/tuskdesk/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "tuskdesk-e2e": {
+      "root": "apps/tuskdesk-e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/tuskdesk-e2e/protractor.conf.js",
+            "devServerTarget": "tuskdesk:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "tuskdesk:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/tuskdesk-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "tuskdesk-admin": {
+      "root": "apps/tuskdesk-admin/",
+      "sourceRoot": "apps/tuskdesk-admin/src",
+      "projectType": "application",
+      "prefix": "myorg",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/tuskdesk-admin",
+            "index": "apps/tuskdesk-admin/src/index.html",
+            "main": "apps/tuskdesk-admin/src/main.ts",
+            "polyfills": "apps/tuskdesk-admin/src/polyfills.ts",
+            "tsConfig": "apps/tuskdesk-admin/tsconfig.app.json",
+            "assets": [
+              "apps/tuskdesk-admin/src/favicon.ico",
+              "apps/tuskdesk-admin/src/assets"
+            ],
+            "styles": [
+              "apps/tuskdesk-admin/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/tuskdesk-admin/src/environments/environment.ts",
+                  "with": "apps/tuskdesk-admin/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "tuskdesk-admin:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "tuskdesk-admin:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "tuskdesk-admin:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/tuskdesk-admin/src/test.ts",
+            "polyfills": "apps/tuskdesk-admin/src/polyfills.ts",
+            "tsConfig": "apps/tuskdesk-admin/tsconfig.spec.json",
+            "karmaConfig": "apps/tuskdesk-admin/karma.conf.js",
+            "styles": [
+              "apps/tuskdesk-admin/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "apps/tuskdesk-admin/src/favicon.ico",
+              "apps/tuskdesk-admin/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/tuskdesk-admin/tsconfig.app.json",
+              "apps/tuskdesk-admin/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "tuskdesk-admin-e2e": {
+      "root": "apps/tuskdesk-admin-e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/tuskdesk-admin-e2e/protractor.conf.js",
+            "devServerTarget": "tuskdesk-admin:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "tuskdesk-admin:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/tuskdesk-admin-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ui-shell": {
+      "root": "libs/ui-shell",
+      "sourceRoot": "libs/ui-shell/src",
+      "projectType": "library",
+      "prefix": "myorg",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/ui-shell/src/test.ts",
+            "tsConfig": "libs/ui-shell/tsconfig.spec.json",
+            "karmaConfig": "libs/ui-shell/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui-shell/tsconfig.lib.json",
+              "libs/ui-shell/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "api": {
+      "root": "apps/api",
+      "sourceRoot": "apps/api/src",
+      "projectType": "application",
+      "prefix": "api",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/builders:node-build",
+          "options": {
+            "outputPath": "dist/apps/api",
+            "main": "apps/api/src/main.ts",
+            "tsConfig": "apps/api/tsconfig.app.json"
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/builders:node-execute",
+          "options": {
+            "buildTarget": "api:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/api/tsconfig.app.json",
+              "apps/api/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/api/jest.config.js",
+            "tsConfig": "apps/api/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "data": {
+      "root": "libs/data",
+      "sourceRoot": "libs/data/src",
+      "projectType": "library",
+      "prefix": "myorg",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/data/src/test.ts",
+            "tsConfig": "libs/data/tsconfig.spec.json",
+            "karmaConfig": "libs/data/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/data/tsconfig.lib.json",
+              "libs/data/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@nrwl/schematics"
+  },
+  "defaultProject": "tuskdesk"
+}
